@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Experiment_With_Controls"
         mc:Ignorable="d"
-        Title="Experiment with Controls" Height="450" Width="800">
+        Title="Experiment with Controls" Height="450" Width="500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -16,6 +16,58 @@
             <RowDefinition/>
             <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
+        <Label Content="Enter a number" 
+               HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="18" />
+        <TextBlock x:Name="number" Text="#" 
+                   Grid.Column="1" FontSize="24" 
+                   HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBox x:Name="numberTextBox" Text="0" 
+                 FontSize="18"  
+                 HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" Margin="10,49,0,0" Width="120" 
+                     TextChanged="numberTextBox_TextChanged"
+                     PreviewTextInput="numberTextBox_PreviewTextInput"/>
+
+        <RadioButton Content="1" HorizontalAlignment="Left" Margin="13,102,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" />
+        <RadioButton Content="2" HorizontalAlignment="Left" Margin="44,102,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" />
+        <RadioButton Content="3" HorizontalAlignment="Left" Margin="75,102,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" />
+        <RadioButton Content="4" HorizontalAlignment="Left" Margin="13,121,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" />
+        <RadioButton Content="5" HorizontalAlignment="Left" Margin="44,121,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" />
+        <RadioButton Content="6" HorizontalAlignment="Left" Margin="75,121,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" />
+
+        <ListBox x:Name="myListBox" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,10,10" Height="72" Width="120" Grid.Row="1" SelectionChanged="myListBox_SelectionChanged">
+            <ListBoxItem Content="1"/>
+            <ListBoxItem Content="2"/>
+            <ListBoxItem Content="3"/>
+            <ListBoxItem Content="4"/>
+            <ListBoxItem Content="5"/>
+        </ListBox>
+        <ComboBox x:Name="readOnlyComboBox" 
+                  Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectionChanged="readOnlyComboBox_SelectionChanged">
+            <ListBoxItem Content="1"/>
+            <ListBoxItem Content="2"/>
+            <ListBoxItem Content="3"/>
+            <ListBoxItem Content="4"/>
+            <ListBoxItem Content="5"/>
+        </ComboBox>
+        <ComboBox x:Name="editableComboBox" 
+                  Grid.Column="1" HorizontalAlignment="Left" Margin="266,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" IsEditable="True"
+                    PreviewTextInput="numberTextBox_PreviewTextInput"
+                    TextBoxBase.TextChanged="editableComboBox_TextChanged">
+            <ListBoxItem Content="1"/>
+            <ListBoxItem Content="2"/>
+            <ListBoxItem Content="3"/>
+            <ListBoxItem Content="4"/>
+            <ListBoxItem Content="5"/>
+        </ComboBox>
+        <Slider x:Name="smallSlider" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Width="132" AutoToolTipPlacement="TopLeft" Grid.Row="2" Grid.Column="1" 
+                Maximum="5" Minimum="1" 
+                    ValueChanged="smallSlider_ValueChanged"/>
+        <Slider x:Name="stupidSlider" 
+                VerticalAlignment="Center" Margin="10" Grid.Row="2" Grid.ColumnSpan="2" 
+                AutoToolTipPlacement="TopLeft" Minimum="0900000000" Maximum="999999999" Value="7183876962"
+                    ValueChanged="stupidSlider_ValueChanged"/>
 
     </Grid>
 </Window>
